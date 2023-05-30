@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "github.com/mariobenissimo/my_grpc/route_guide/routeguide";
+
+package routeguide;
+
+// Interface exported by the server.
+service RouteGuide {
+
+  rpc getSum(Point) returns  (Sum) {}
+  
+
+  rpc getSumFromPoints(stream Point) returns (Sum) {}
+  rpc getYFromFunction(X) returns (stream Y) {}
+}
+message Point {
+  int32 x = 1;
+  int32 y = 2;
+}
+message Sum {
+  int32 z = 1;
+}
+message X {
+  int32 x = 1;
+}
+message Y {
+  int32 y = 1;
+}
